@@ -43,6 +43,7 @@ func Test_Individual(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			var lightBoard LightBoard
 			action, startx, starty, endx, endy := parseInput(tt.args.input)
+			//need to check to see if the lightboard is initialized
 
 			switch action {
 			case "turn on":
@@ -52,6 +53,7 @@ func Test_Individual(t *testing.T) {
 			case "toggle":
 				processToggle(startx, endx, starty, endy, lightBoard)
 			}
+			// the total number of lights on is the sum of all the values in the lightBoard
 			var total int = 0
 			for _, row := range lightBoard {
 				for _, val := range row {
